@@ -1,0 +1,13 @@
+WITH Orders AS(
+SELECT 1 Id,'A' Category UNION
+SELECT 2 , NULL UNION
+SELECT 3 , '' UNION
+SELECT 4, ' ' UNION
+SELECT 5, '  '
+)
+SELECT 
+*,
+DATALENGTH(Category) AS CategoryLen,
+DATALENGTH(TRIM(Category)) AS POLICY1,
+NULLIF(TRIM(Category) ,'') AS POLCIY2
+FROM Orders 
